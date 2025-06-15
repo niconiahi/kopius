@@ -1,12 +1,14 @@
 This will hold all the documentation given for the React course
 
 ## Methodology
+
 - Learn by example
 - Do not omit steps, do not leave for later
 - Write the code yourself
 - Ask the AI for examplanations, plan with it. Do not ask for the final code to copy paste. You can ask to make you an explanatory example about what's explaning. It's usually a good idea, so that it's not only words
 
 ## Tech stack
+
 - [`react-router` in framework mode](https://reactrouter.com/start/framework/installation)
 - [Cloudflare](https://www.cloudflare.com/) as a deployment platform
 - [valibot](https://valibot.dev/) for validating unknown data
@@ -15,18 +17,49 @@ This will hold all the documentation given for the React course
 
 ### The holy grail: the HTTP protocol
 
-One of the most important concepts you need to understand in modern web development is the HTTP protocol. This protocol states that the communication between clients and servers is going to be in the form of a Request/Response model: a client sends a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) which the server receives, executes some code and returns a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+One of the most important concepts you need to understand in modern web development is the HTTP protocol. This protocol states that the communication between clients and servers is going to be in the form of a Request/Response model: a client sends a [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) which the server receives, executes some code and returns a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response). One of the components for both requests and responses are URLs. One URL for example would be _https://www.youtube.com/watch?v=1hJKhiew2O0_
 
 #### Characteristics found in this model
 
 - The information travels as strings. This means that the structure of the information we send is lost when travelling. We'll consider the data received as `unknown` both conceptually and as its type. This is why for any _Response_ received, we'll extract it's data and perform a validation process
-- One of the components for both requests and responses are URLs. One URL for example would be _https://www.youtube.com/watch?v=1hJKhiew2O0_
 
-### The URL anatomy
+####  The URL anatomy
 
+There are several parts to an URL, let's dig into some of them by examples
 
+1. Search params
 
-### Validating our data
+```tsx
+const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
+const searchParam = url.searchParams.get("v")
+console.log("searchParam", searchParam) // "searchParam" "YKRfTA-Vx9M"
+```
+
+2. Origin
+
+```tsx
+const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
+const origin = url.origin
+console.log("origin", origin) // "origin" "https://www.youtube.com"
+```
+
+3. Pathname
+
+```tsx
+const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
+const pathname = url.pathname
+console.log("pathname", pathname) // "pathname" "/watch"
+```
+
+4. Href
+
+```tsx
+const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
+const href = url.href
+console.log("href", href) // "href" "https://www.youtube.com/watch?v=YKRfTA-Vx9M"
+```
+
+### Data validation
 
 To perform this validation process, we'll use [`valibot`'s `parse` method](https://valibot.dev/guides/parse-data/). This method allows us to perform an exahustive structure validation over an `unknown` piece of data
 
@@ -55,6 +88,7 @@ Let's go through a couple of examples
 ```tsx
 // URL: https://www.youtube.com/watch?v=YKRfTA-Vx9M
 export function loader({ request }: Route.LoaderArgs) {
+  const url = new URL(request.url)
   const video = v.parse(v.string(), url.searchParams.get('v')) 
   console.log("video", video) // "video" "I3GD4OAtEYo"
 }
