@@ -27,7 +27,7 @@ One of the most important concepts you need to understand in modern web developm
 
 There are several parts to an URL, let's dig into some of them by examples
 
-1. Search params
+##### Search params
 
 ```tsx
 const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
@@ -35,7 +35,7 @@ const searchParam = url.searchParams.get("v")
 console.log("searchParam", searchParam) // "searchParam" "YKRfTA-Vx9M"
 ```
 
-2. Origin
+##### Origin
 
 ```tsx
 const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
@@ -43,7 +43,7 @@ const origin = url.origin
 console.log("origin", origin) // "origin" "https://www.youtube.com"
 ```
 
-3. Pathname
+##### Pathname
 
 ```tsx
 const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
@@ -51,7 +51,7 @@ const pathname = url.pathname
 console.log("pathname", pathname) // "pathname" "/watch"
 ```
 
-4. Href
+##### Href
 
 ```tsx
 const url = new URL("https://www.youtube.com/watch?v=YKRfTA-Vx9M")
