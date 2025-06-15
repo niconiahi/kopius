@@ -152,6 +152,7 @@ const adults = v.parse(v.array(AdultSchema), data)
 Don't do this
 
 ```tsx
+// don't use "v.array" in schema declarations
 const AdultsSchema = v.array(
   v.object({
     name: v.pipe(v.string(), v.minLength(3)),
@@ -165,6 +166,7 @@ const data = fetch("https://human.ai/adults")
   .catch((error) => {
     console.error('error', error)
   })
+  // use "v.array" at the time of parsing
 const adults = v.parse(AdultsSchema, data)
 ```
 
