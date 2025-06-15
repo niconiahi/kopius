@@ -4,7 +4,7 @@ To perform this validation process, we'll use [`valibot`'s `parse` method](https
 
 The output of this method can be two things: the data stored in a variable typed with high fidelity or an error. This process, as being the first thing we do for every _Request_ we receive, effectively means that we are controlling the exact data that enters our system
 
-This makes our system less prone to errors and safer, as even if people send malicious stuff, if the structure defined by the [`valibot schema`](https://valibot.dev/guides/schemas/) used with the `parse` method, then the program will error out
+This makes our system less prone to errors and safer. Why safer? bacause even if people send malicious data, the only data we'll end up having is the on that matches the structure defined by the [`valibot schema`](https://valibot.dev/guides/schemas/) used with the `parse` method. If the data being checked doesn't match exactly the structure defined in schema, an error is [_thrown_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw) and the application stops
 
 `valibot` will be our swiss-knife library. Let's see some example on how to validate different types of data:
 
