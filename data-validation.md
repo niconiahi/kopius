@@ -8,7 +8,7 @@ This makes our system less prone to errors and safer. Why safer? bacause even if
 
 `valibot` will be our swiss-knife library. Let's see some example on how to validate different types of data:
 
-- Validate a number with `v.number`
+## Validate a number with `v.number`
 
 ```tsx
 const UNKNOWN_NUMBER = 22
@@ -16,7 +16,7 @@ const number = v.parse(v.number(), UNKNOWN_NUMBER)
 console.log("number", number) // "number" 22
 ```
 
-- Validate a string with `v.string`
+## Validate a string with `v.string`
 
 ```tsx
 const UNKNOWN_STRING = "Alfonso"
@@ -24,7 +24,7 @@ const string = v.parse(v.string(), UNKNOWN_STRING)
 console.log("string", string) // "string" "Alfonso"
 ```
 
-- Validate multiple things, all at once, with `v.pipe`
+## Validate multiple things, all at once, with `v.pipe`
 
 ```tsx
 const UNKNOWN_STRING = "Alfonso"
@@ -45,7 +45,9 @@ Let's go step by step over what this snippet of code does:
 3. Then this validated string is handed as input for the next step in the `v.pipe` operator, in this case, to the `v.minLength` method, so: "does the input string have a minimum of 4 characters?" -> "yes"
 4. Validation is finished and the returned data is stored in the `string` variable
 
-- Validate multiple things and transform with `v.transform`. In order to use `v.transform`, you have to use it along with `v.pipe` method
+## Validate multiple things and transform with `v.transform`
+
+In order to use `v.transform`, you have to use it along with `v.pipe` method
 
 ```tsx
 const UNKNOWN_STRING = "22"
