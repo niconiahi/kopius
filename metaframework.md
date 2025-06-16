@@ -99,6 +99,8 @@ export default function() {
 }
 ```
 
+Another example: in this one we are executing a _form submission_ to set a selected user
+
 ```tsx
 export function action({ request }: Route.ActionArgs) {
   const formData = request.formData()
