@@ -15,6 +15,7 @@ This will hold all the documentation given for the React course
 
 ## Content
 
+- [Git](./git.md)
 - [HTTP](./http.md)
 - [Data validation](./data-validation.md)
 - [React](./react.md)
