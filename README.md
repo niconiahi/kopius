@@ -21,3 +21,4 @@ This will hold all the documentation given for the React course
 - [React](./react.md)
 - [Metaframework](./metaframework.md)
 - [Coding practices](./coding-practices.md)
+- [Tailwind](./tailwind.md)
