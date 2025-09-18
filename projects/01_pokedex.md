@@ -32,3 +32,7 @@ This application will work as a warm up for our foundational skills, including:
 ## Repository
 
 - Link to [Github](https://github.com/niconiahi/kopius/blob/main/projects/01_pokedex.md)
+
+## Demo
+
+- Link to the [demo](https://url.com)

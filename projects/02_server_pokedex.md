@@ -7,14 +7,17 @@ This application will introduce how, normally, a React client application intera
 - How the `Request` and `Response` model fits into a React's metaframework
 - How to send data from the client and how to receive such data from the server, using the native [form element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form)
 - How to _load data_ in the server [loader](https://reactrouter.com/start/framework/data-loading) and hand it off to your client
-- How to _recieve data_ in the server [action](https://reactrouter.com/start/framework/actions) and store it
+- How to _recieve data_ in the server [action](https://reactrouter.com/start/framework/actions) by reading the `Request`'s [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) and do something with it. Generally, storing it
+- How to create an [URL](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) from a `Request` or `Response` and what's the anatomy of it, including the [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
 ## By the end of this project
 
 - Expect to understand the communication between your _client_'s React application with your _server_'s metaframework function
 - Expect to understand exactly how the `form` element works
 - You will have the same the functionality as [01_pokedex](./01_pokedex.md) but without any `useState` or `useEffect`, that is, no Javascript on the client
-- You will understand what we are talking when talking about _bundle size_ and good pratices around it
+- Expect to understand what we are talking when talking about _bundle size_ and good pratices around it
+- Expect to understand and how to use `URLSearchParams`
+- Expect to understand and how to use `FormData`
 
 ## Description
 
