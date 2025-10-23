@@ -19,6 +19,7 @@ Install `Windows terminal` from the official Windows Store
 4. 
 
 ```bash
+#!/usr/bin/env bash
 sudo apt upgrade
 sudo apt install -y build-essential
 sudo apt install -y golang-go
