@@ -2,6 +2,8 @@
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+
 ## Features
 
 - 🚀 Server-side rendering
@@ -32,14 +34,6 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-## Previewing the Production Build
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
 ## Building for Production
 
 Create a production build:
@@ -50,24 +44,38 @@ npm run build
 
 ## Deployment
 
-Deployment is done using the Wrangler CLI.
+### Docker Deployment
 
-To build and deploy directly to production:
+To build and run using Docker:
 
-```sh
-npm run deploy
+```bash
+docker build -t my-app .
+
+# Run the container
+docker run -p 3000:3000 my-app
 ```
 
-To deploy a preview URL:
+The containerized application can be deployed to any platform that supports Docker, including:
 
-```sh
-npx wrangler versions upload
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
+
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
 ```
-
-You can then promote a version to production after verification or roll it out progressively.
-
-```sh
-npx wrangler versions deploy
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
 ```
 
 ## Styling

@@ -1,11 +1,6 @@
-import type { RouteConfig } from "@react-router/dev/routes"
-import { remixRoutesOptionAdapter } from "@react-router/remix-routes-option-adapter"
-import { flatRoutes } from "remix-flat-routes"
+import { index, route, type RouteConfig } from "@react-router/dev/routes";
 
-const config: RouteConfig = remixRoutesOptionAdapter(
-  (defineRoutes) => {
-    return flatRoutes("routes", defineRoutes)
-  },
-)
-
-export default config
+export default [
+	index("routes/home.tsx"),
+	route("pokedex", "./routes/pokedex.tsx"),
+] satisfies RouteConfig;
