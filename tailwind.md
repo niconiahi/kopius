@@ -12,8 +12,6 @@ Tailwind creates a process that will read _all your codebase_ and generate one b
 
 In this example `tailwind-merge` is used to concatenate several Tailwind classes. If it finds the same class being applied, it will apply the last
 
-
-
 ```tsx
 <button
   className={twMerge([
