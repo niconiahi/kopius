@@ -1,0 +1,24 @@
+:root {
+  --black: #23221f;
+  --gray: #54524e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+div#root,
+main {
+  height: 100%;
+}
+
+main {
+  background-color: var(--black);
+
+  & h1 {
+    color: var(--gray);
+  }
+}
