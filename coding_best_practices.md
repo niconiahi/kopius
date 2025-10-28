@@ -1,4 +1,4 @@
-# Coding practices
+# Coding best practices
 
 ## Naming your variables
 
