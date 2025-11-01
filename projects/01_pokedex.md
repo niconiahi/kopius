@@ -36,3 +36,8 @@ This application will work as a warm up for our foundational skills, including:
 ## Demo
 
 - Link to the [demo](https://url.com)
+
+## Endpoints
+
+To list pokemons: `https://pokeapi.co/api/v2/pokemon?limit=${AMOUNT}&offset=0`
+To get detailed information about a given Pokemon: `https://pokeapi.co/api/v2/pokemon/${ID_POKEMON}`

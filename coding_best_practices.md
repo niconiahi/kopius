@@ -111,3 +111,4 @@ function fetchUsers() {
 // "fetchUsers" is the full name of the function that gets a list of users
 const users = fetchUsers() // "fetchColors" minus the prefix "fetch" equals "users"
 ```
+

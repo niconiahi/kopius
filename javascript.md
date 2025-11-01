@@ -144,3 +144,27 @@ const two = 2
 const sum = one + two
 console.log(sum) // => 3
 ```
+
+## switch statement + type
+
+```tsx
+function getRoleLabel(type) {
+  switch (type) {
+    case "owner": {
+      return "Dueño"
+    }
+    case "administrator": {
+      return "Administrador"
+    }
+    case "candidate": {
+      return "Candidato"
+    }
+  }
+}
+const label = getRoleLabel('owner')
+console.log(label) // => 'Dueño'
+label = getRoleLabel('administrator')
+console.log(label) // => 'Administrador'
+label = getRoleLabel('candidate')
+console.log(label) // => 'Candidato'
+```
