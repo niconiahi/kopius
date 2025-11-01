@@ -154,3 +154,65 @@ useEffect(() => {
 ```
 
 In this example we are _fetching_ the data for Ditto, a Pokemon. Then we are _deserealizing_ the _response_ into JSON and storing the result of that into a variable called "data".
+
+### Extracting functions outside of components
+
+We'll maintain funcitons outside of components in order to have clean and simple components
+If we leave the function's declarations inside the component, it may too big too fast
+
+```tsx
+function App() {
+  const [name, setName] = useState("Alonso")
+  function handleClick() {
+    setName('Fernando')
+  }
+  return (
+    <button onClick={() => {
+      handleClick()
+    }}>
+      change name
+    </button>
+  )
+}
+```
+
+This would would get extracted outside the component
+
+```tsx
+function handleClick(setName) {
+  setName('Fernando')
+}
+function App() {
+  const [name, setName] = useState("Alonso")
+  return (
+    <button onClick={() => {
+      handleClick()
+    }}>
+      change name
+    </button>
+  )
+}
+```
+
+Another possibility is not creating a function at. Just move all the code to an [anonymous function](https://en.wikipedia.org/wiki/Anonymous_function)
+
+An _anonymous function_ is a function which is not assigned to a variable
+
+```tsx
+function App() {
+  const [name, setName] = useState("Alonso")
+  return (
+    <button onClick={() => {
+      setName('Fernando')
+    }}>
+      change name
+    </button>
+  )
+}
+```
+
+Unless the function is reused, I'll prefer using an _anonymous function_
+
+Why will I prefer this? Because it means I will make fewer _line jumps_. I don't have to go see the code being executed in another function (namely `handleClick` in the case of this example), I can see it right there. It's only one line of code and it executes the `setName` function
+
+
