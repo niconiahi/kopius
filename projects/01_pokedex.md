@@ -35,9 +35,16 @@ This application will work as a warm up for our foundational skills, including:
 
 ## Demo
 
-- Link to the [demo](https://url.com)
+- Link to the [demo](https://e798bb48.pokedex-cdm.pages.dev)
 
 ## Endpoints
 
 To list pokemons: `https://pokeapi.co/api/v2/pokemon?limit=${AMOUNT}&offset=0`
 To get detailed information about a given Pokemon: `https://pokeapi.co/api/v2/pokemon/${ID_POKEMON}`
+
+Endpoints are called with [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+## Starting point
+
+1. Run the command `npm create vite@latest 01_pokedex -- --template react-ts`
+2. Install [biome](../formatter_and_linter.md)
