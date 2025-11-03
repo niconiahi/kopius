@@ -61,54 +61,60 @@ Let's disect the example:
 
 ## Important note
 
-You will always be able to determine if you should be writting Javascript (or Typescript) or not by looking at the `{}`
+You will always be able to determine if you are about to start writting _JSX_ or _HTML_ because of the curly braces `{}`
 
-So let's see this why the previous example:
-
-```jsx
-<li key={id}>//the other stuff</li>
-```
-
-The HTML version of this would be 
+Consider this HTML valid `<li>` element
 
 ```html
 <li key="section-1">//the other stuff</li>
 ```
 
-What I'm trying to ilustrate is this
-
-> The delimiter that you are about to write Javascript instead of HTML are the `{}`
-
-See them again:
-
-1. The `{id}` part is expected to be Javascript
+You would do archieve the same with JSX doing the following
 
 ```jsx
-<li key={id}>//the other stuff</li>
+function Component() {
+  const id = 'section-1'
+  return <li key={id}>//the other stuff</li>
+}
 ```
 
-2. The `{section}` part is expected to be Javascript
+The expectation is that between `{}` you write valid _JSX_ code
 
-```jsx
-<span>section {section}</span> 
+Valid _JSX_ code includes:
+
+1. Assigning _HTML attributes_ values dinamically
+
+```tsx
+<li key={id}>//the other stuff</li> // id is a valid Javascript exception
 ```
 
-3. The `{sections.map()}` part is expected to be Javascript
+2. Returning _HTML_
 
-```jsx
-<ul>
-  {sections.map((section) => {
-    const id = `section-${section}`
-    return (
-      <li key={id}>//the other stuff</span></li>
-    )
-  })}
-</ul>
+```tsx
+function Component() {
+  return <span>some content</span>
+}
 ```
 
-If you have a sharp eye, you may tell me: "But returning HTML is not valid Javascript". And you'd be totally correct
+3. Setting _HTML_ content dinamically
 
-The actual expectation is not that between `{}` valid Javascript code is run but valid _JSX_ code. What this essentially means is that now your Javascript is allowed to return HTML
+```tsx
+function Component({ name }: { name: string }) {
+  return <span>the name is {name}</span>
+}
+```
+
+4. Sending data from parent to child via _props_
+
+```tsx
+function Parent() {
+  const name = 'Silvio'
+  return <Child name={name} />
+}
+function Child({ name }: { name: string }) {
+  return <span>the name is {name}</span>
+}
+```
 
 ## Dictionary
 
