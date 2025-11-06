@@ -10,7 +10,7 @@ This makes our system less prone to errors and safer. Why safer? bacause even if
 
 ### Validate a number with `v.number`
 
-```tsx
+```ts
 const UNKNOWN_NUMBER = 22
 const number = v.parse(v.number(), UNKNOWN_NUMBER)
 console.log("number", number) // "number" 22
@@ -18,7 +18,7 @@ console.log("number", number) // "number" 22
 
 ### Validate a string with `v.string`
 
-```tsx
+```ts
 const UNKNOWN_STRING = "Alfonso"
 const string = v.parse(v.string(), UNKNOWN_STRING)
 console.log("string", string) // "string" "Alfonso"
@@ -26,7 +26,7 @@ console.log("string", string) // "string" "Alfonso"
 
 ### Validate multiple things, all at once, with `v.pipe`
 
-```tsx
+```ts
 const UNKNOWN_STRING = "Alfonso"
 const string = v.parse(
     v.pipe(v.string(), v.minLength(4)),
@@ -49,7 +49,7 @@ Let's go step by step over what this snippet of code does:
 
 In order to use `v.transform`, you have to use it along with `v.pipe` method
 
-```tsx
+```ts
 const UNKNOWN_DOCUMENT_NUMBER = "37782650"
 const documentNumber = v.parse(
     v.pipe(v.string(), v.minLength(7), v.transform(Number)),
@@ -73,7 +73,7 @@ Here, we have created a validation schema to check for a DNI
 
 Given the last example, we could extract the logic to validate the DNI into it's own variable. Let's see how to do that
 
-```tsx
+```ts
 const DocumentNumberSchema = v.pipe(v.string(), v.minLength(7), v.transform(Number))
 
 const UNKNOWN_DOCUMENT_NUMBER = "37782650"
@@ -87,7 +87,7 @@ console.log("documentNumber", documentNumber) // "documentNumber" 37782650
 
 This allows for easy re-usability
 
-```tsx
+```ts
 const DocumentNumberSchema = v.pipe(v.string(), v.minLength(7), v.transform(Number))
 
 const UNKNOWN_DOCUMENT_NUMBER = "37782650"
@@ -109,7 +109,7 @@ console.log("documentNumber2", documentNumber2) // "documentNumber2" 32714682
 
 Let's go over a next example, in this case, we are going to consider that the unkwown data to be checked is going to be a stringified object (done with [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify))
 
-```tsx
+```ts
 const AdultSchema = v.object({
   // there are no names with only 2 letters
   name: v.pipe(v.string(), v.minLength(3)),
@@ -132,7 +132,7 @@ const adult = v.parse(AdultSchema, data)
 
 It's possible to validate if something is a list with `v.array`. So, continuing the last example
 
-```tsx
+```ts
 const AdultSchema = v.object({
   name: v.pipe(v.string(), v.minLength(3)),
   age: v.pipe(v.number(), v.minValue(18)),
@@ -151,7 +151,7 @@ const adults = v.parse(v.array(AdultSchema), data)
 
 Don't do this
 
-```tsx
+```ts
 // don't use "v.array" in schema declarations
 const AdultsSchema = v.array(
   v.object({
@@ -176,4 +176,25 @@ The correct way of using `v.array` is the previously shown, with `v.array` added
 
 ```tsx
 const adults = v.parse(v.array(AdultSchema), data) // use "v.array" in place
+```
+
+### Generate a type from a schema
+
+This is extremely easy, just one line of code. Let's say you have this validation schema:
+
+```ts
+const AdultSchema = v.object({
+  name: v.pipe(v.string(), v.minLength(3)),
+  age: v.pipe(v.number(), v.minValue(18)),
+})
+```
+
+To get the type for `AdultSchema`, you will use `valibot`'s type-utility called `InferOutput`
+
+```ts
+const AdultSchema = v.object({
+  name: v.pipe(v.string(), v.minLength(3)),
+  age: v.pipe(v.number(), v.minValue(18)),
+})
+type Adult = v.InferOutput<typeof AdultSchema>
 ```
