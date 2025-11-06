@@ -2,6 +2,8 @@
 
 There is a way for us to _store_ some data in the browser. That data will be available for us to retrieve it whenever we want
 
+## Storing a value
+
 ### Storing simple values
 
 The anatomy of [localStorage.setItem()](https://developer.mozilla.org/es/docs/Web/API/Storage/setItem) is:
@@ -67,4 +69,19 @@ const people = [
 localStorage.setItem("people", JSON.stringify(people))
 console.log(localStorage.getItem('people'))
 console.log(typeof localStorage.getItem('people'))
+```
+
+## Getting a value
+
+Now let's get the information back. For this, you only need to provide the _key_
+
+```ts
+const name = localStorage.getItem("name") 
+```
+
+```ts
+localStorage.setItem("count", String(33))
+const count = localStorage.getItem("count")
+console.log('count', count) // "33"
+console.log('count', Number(count) // 33
 ```

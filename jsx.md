@@ -63,7 +63,7 @@ Let's disect the example:
 
 You will always be able to determine if you are about to start writting _JSX_ or _HTML_ because of the curly braces `{}`
 
-Consider this HTML valid `<li>` element
+Consider this _HTML valid_ `<li>` element
 
 ```html
 <li key="section-1">//the other stuff</li>
