@@ -76,12 +76,65 @@ console.log(typeof localStorage.getItem('people'))
 Now let's get the information back. For this, you only need to provide the _key_
 
 ```ts
-const name = localStorage.getItem("name") 
+localStorage.setItem("name", "Lorenzo")
+const name = localStorage.getItem("name")
+console.log('name', name)
+console.log(typeof count)
 ```
 
 ```ts
 localStorage.setItem("count", String(33))
 const count = localStorage.getItem("count")
-console.log('count', count) // "33"
-console.log('count', Number(count) // 33
+console.log('count', count)
+console.log(typeof count)
+console.log('count', Number(count))
+console.log(typeof Number(count))
+```
+
+```ts
+localStorage.setItem("count", String(33))
+const count = localStorage.getItem("count")
+console.log('count', count)
+console.log(typeof count)
+console.log('count', Number(count))
+console.log(typeof Number(count))
+```
+
+```ts
+localStorage.setItem(
+  "person",
+  JSON.stringify({ name: "Olga", surname: "Fernandez" })
+)
+const person = localStorage.getItem("person")
+console.log('person', person)
+console.log(typeof person)
+console.log('person', JSON.parse(person))
+console.log(typeof JSON.parse(person))
+```
+
+```ts
+localStorage.setItem(
+  "people",
+  JSON.stringify(["Sarah", "Mike"])
+)
+const people = localStorage.getItem("people")
+console.log('people', people)
+console.log(typeof people)
+console.log('people', JSON.parse(people))
+console.log(typeof JSON.parse(people))
+```
+
+```ts
+localStorage.setItem(
+  "people",
+  JSON.stringify([
+    { name: "Olga", surname: "Fernandez" },
+    { name: "Martina", surname: "Lorenzo" },
+  ])
+)
+const people = localStorage.getItem("people")
+console.log('people', people)
+console.log(typeof people)
+console.log('people', JSON.parse(people))
+console.log(typeof JSON.parse(people))
 ```
