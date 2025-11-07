@@ -10,7 +10,18 @@ pnpm add -D -E @biomejs/biome
 
 3. Install `Biome` extension from VSCode extensions
 
-4. Add configuration file, located at `.vscode/settings.json`
+4. `pnpm exec biome init`
+
+5. Update the `indentStyle` key to be `"space"`
+
+```json
+"formatter": {
+  "enabled": true,
+  "indentStyle": "space"
+}
+```
+
+6. Add configuration file, located at `.vscode/settings.json`
 
 ```json
 {
