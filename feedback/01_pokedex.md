@@ -453,3 +453,17 @@ const types = [
   ),
 ]
 ```
+
+### Don't use name constractions
+
+No
+
+```tsx
+const updatedList = capturedPokemons.filter((c) => c.id !== p.id);
+```
+
+Prefer using explicit names
+
+```tsx
+const updatedList = capturedPokemons.filter((captured) => captured.id !== pokemon.id);
+```
