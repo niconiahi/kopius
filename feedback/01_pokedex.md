@@ -2,15 +2,15 @@
 
 ### Never write code in spanish
 
-We don"t want to see or read any code that"s not English
+We don't want to see or read any code that's not English
 
 ### Never work without formatting
 
-We don"t want to lose _ANY_ time manually formatting the code. If it doesn"t work, take the time until it"s working
+We don't want to lose _ANY_ time manually formatting the code. If it doesn't work, take the time until it's working
 
 ### Always open the function body
 
-Don"t do an _implicit return_ when creating functions
+Don't do an _implicit return_ when creating functions
 
 ```tsx
 <input onChange={(f) => setFilter({ ...filter, name: f.target.value })}/>
@@ -26,9 +26,9 @@ Instead, always _open_ the body of the function
 />
 ```
 
-Why? because say you have to add a `console.log` for debugging purposes. If you _don"t_ have the body of the function opened, you"d need to restructure the code just to add it. Let"s see it in an example
+Why? because say you have to add a `console.log` for debugging purposes. If you _don't_ have the body of the function opened, you'd need to restructure the code just to add it. Let"s see it in an example
 
-If I want to log `filter` just to see what"s there, or even the `f.target.value` in this case, I can"t do it
+If I want to log `filter` just to see what's there, or even the `f.target.value` in this case, I can't do it
 
 ```tsx
 <input onChange={(f) => setFilter({...filter, name:f.target.value})}/>
@@ -44,11 +44,11 @@ I would need to open the body of the function and add them
 }/>
 ```
 
-So basically you are ending up having to write the `{}`. Then why not do it _from the get go_. No reason not to. So don"t do it
+So basically you are ending up having to write the `{}`. Then why not do it _from the get go_. No reason not to. So don't do it
 
 ### Don"t create types as variables if you don"t reuse them
 
-In this example, `filterProps` is a type that is only being used with the `Filter` component. It"s _declared_ outside of the component, not _inlined_. We want our types to be _inlined_, always
+In this example, `filterProps` is a type that is only being used with the `Filter` component. It's _declared_ outside of the component, not _inlined_. We want our types to be _inlined_, always
 
 ```tsx
 type filterProps ={
@@ -76,7 +76,7 @@ function Filter ({filter , setFilter, types}: filterProps){
 }
 ```
 
-When I say _inline_, I"m speaking about this
+When I say _inline_, I'm speaking about this
 
 ```tsx
 function Filter({
@@ -108,7 +108,7 @@ function Filter({
 
 Why this is better? You have side by side, the _props_ being received *AND* their types
 
-The only moment that we"ll want to extract a type is going to be we that type is reused in multiple parts of the application, for example:
+The only moment that we'll want to extract a type is going to be we that type is reused in multiple parts of the application, for example:
 
 ```tsx
 type User = {
@@ -150,7 +150,7 @@ function Profile({ user }: { user: User }) {
 
 Pure methods are the ones that instead of mutating the value of the array directly, they create a new array from that one
 
-Take this example of _inpure_ array manipulation. What"s the inpure part here? the `.push` method, which mutates the `pokemons` array"s value. It does not return a new array
+Take this example of _inpure_ array manipulation. What's the inpure part here? the `.push` method, which mutates the `pokemons` array's value. It does not return a new array
 
 ```tsx
 const pokemons: Pokemon[] = [];
@@ -179,7 +179,7 @@ const pokemons = await Promise.all(
 
 Whenever you can, stay aligned with conventions so that you don"t have to think about names at all
 
-Let"s take this key usage when iterating a list
+Let's take this key usage when iterating a list
 
 ```tsx
 {types.map((type, index) => {
@@ -188,7 +188,7 @@ Let"s take this key usage when iterating a list
 })}
 ```
 
-Let"s _keep it simple_ by always using the same variable name. In this case `id`
+Let's _keep it simple_ by always using the same variable name. In this case `id`
 
 ```tsx
 {types.map((type, index) => {
@@ -197,7 +197,7 @@ Let"s _keep it simple_ by always using the same variable name. In this case `id`
 })}
 ```
 
-This will give you one less problem to think about: "I need a `key` for my item on the list. OK -- I"ll create an `id` variable and use it". Always the same conventional pattern
+This will give you one less problem to think about: "I need a `key` for my item on the list. OK -- I'll create an `id` variable and use it". Always the same conventional pattern
 
 ### Don"t abstract functions unless is reused
 
@@ -223,7 +223,7 @@ function capturePokemon(
 </button>
 ```
 
-Let"s prefer _inlining_ the function if it"s only used in one place. So we don"t have to travel through the code to see what it does
+Let's prefer _inlining_ the function if it's only used in one place. So we don't have to travel through the code to see what it does
 
 ```tsx
 function capturePokemon(
@@ -244,7 +244,7 @@ function capturePokemon(
 </button>
 ```
 
-Much cleaner in my opinion. I don"t have to go see what"s in `capturePokemon` to see what it does. It"s just right there
+Much cleaner in my opinion. I don't have to go see what"s in `capturePokemon` to see what it does. It's just right there
 
 ### Always declare your types next to your schemas
 
@@ -259,7 +259,7 @@ const PokemonSchema = v.object({
 type Pokemon = v.InferOutput<typeof PokemonSchema>
 ```
 
-Don"t ever create your types manually
+Don't ever create your types manually
 
 ```tsx
 const PokemonSchema = v.object({
@@ -326,7 +326,7 @@ Take this code as an example
 />
 ```
 
-In here, I"m seeing that are 3 props that are coming from a `p`: `p.name`, `p.sprites` and `p.types`. Also the `capturePokemon(p)`, which uses `p` as well.
+In here, I'm seeing that are 3 props that are coming from a `p`: `p.name`, `p.sprites` and `p.types`. Also the `capturePokemon(p)`, which uses `p` as well.
 
 Whenever you found yourself passing down many props whose values all come from the same variable (`p` in this case), just share the whole variable with that component. This means:
 
@@ -387,7 +387,7 @@ Here is how this same code looks with the `searchPokemon` _inlined_
 />
 ```
 
-### Don"t use "List" or "Array" as name for an array
+### Don't use "List" or "Array" as name for an array
 
 Take this example, which has the `typesList` variable. The `List` part is totally redundant. The fact that is an array is signaled by either or not having an _s_
 
