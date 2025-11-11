@@ -199,7 +199,7 @@ Let's _keep it simple_ by always using the same variable name. In this case `id`
 
 This will give you one less problem to think about: "I need a `key` for my item on the list. OK -- I'll create an `id` variable and use it". Always the same conventional pattern
 
-### Don"t abstract functions unless is reused
+### Don't abstract functions unless is reused
 
 Take this example, which creates a `capturePokemon` function that is oonly used in that button
 
@@ -226,12 +226,6 @@ function capturePokemon(
 Let's prefer _inlining_ the function if it's only used in one place. So we don't have to travel through the code to see what it does
 
 ```tsx
-function capturePokemon(
-  setCaptured: SetCaptured,
-  captured: Captured,
-  pokemon: Pokemon,
-) {
-}
 <button
   type="button"
   onClick={() => {
