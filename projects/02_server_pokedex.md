@@ -28,10 +28,15 @@ This application will introduce how, normally, a React client application intera
 - It will allow filtering the list of pokemons by name and pokemon type
 - It will "remember" the pokemons that were added to the pokedex when refreshing the page
 
-## Starter template
+## Plan
 
-- Link to template in [Github](https://github.com/niconiahi/kopius/blob/main/projects/template)
+1. All data fetching should occur in the `loader`
+2. All _data normalization_ should occur in the `loader`
+3. All data mutation should occur in the `action`, executed from a [FormSubmission](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data)
+4. There shouldn't be any `useState`
+5. Data persistance should be done with `cookies`, as opposed to `localStorage`
 
-## Demo
+## Starting point
 
-- Link to the [demo](https://url.com)
+1. Run the command `npx create-react-router@latest --template remix-run/react-router-templates/cloudflare`
+2. Install [biome](../formatter_and_linter.md)
